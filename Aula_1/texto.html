@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com Textos</title>
+
+    <style>
+        body{
+            background-color: darkturquoise;
+            color: darkslateblue;
+            font: normal 15pt arial;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>BOM DIA FAMILIA!!</h1>
+
+    <script>
+        var nome = 'Mama Tartaruga'
+        //OBTENDO O NUMERO DE CARACTERES NA VARIÁVEL
+        console.log(nome.length)
+
+        //DEIXANDO TUDO EM MAIÚSCULO E MINUSCULO
+        console.log(nome.toUpperCase()) //MAIÚSCULO
+        console.log(nome.toLowerCase()) //MINUSCULO
+
+        console.log(nome)
+       
+        var nomePerguntado = prompt("Digite seu nome:")
+        var nomePMaiusculo = nomePerguntado.toUpperCase()
+        var nomePMinusculo = nomePerguntado.toLowerCase()
+        var nomePNum = nomePerguntado.length
+
+        alert(`Seu nome tem ${nomePNum} caracteres` +
+        `\nSeu nome maisculo é ${nomePMaiusculo}` +
+        `\nSeu nome minusculo é ${nomePMinusculo}`)
+
+    </script>
+</body>
+</html>

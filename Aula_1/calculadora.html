@@ -10,7 +10,7 @@
         body{
             background-color: black;
             color: red;
-            font: normal 20pt arial;
+            font: normal 15pt arial;
             text-align: center;
             text-shadow: rgba(255, 0, 0, 0.473) 2pt 2pt;
         }
@@ -32,12 +32,18 @@
         var div = (num1 / num2)
         var mult = (num1 * num2)
 
-        //MOSTRANDO NA TELA DO NAVEGADOR
+        //MOSTRANDO NA TELA DO NAVEGADOR (JANELA ==> DOCUMENT)
         document.writeln('<p>O primeiro numero é '+num1 + '</p>')
         document.writeln('<p>O segundo numero é '+num2 + '</p>')
-    
+        document.write('<br>')
+
         //INTERPOLAÇÃO DE VALORES - TEMPLATE STRING
         document.write(` Num1 = ${num1} e Num2 = ${num2}`)
+        document.write('<br>')
+        document.write(`A soma de ${num1} com ${num2} é igual a ${soma} <br>`)
+        document.write(`A subtração de ${num1} com ${num2} é igual a ${sub} <br>`)
+        document.write(`A multiplicação de ${num1} com ${num2} é igual a ${mult} <br>`)
+        document.write(`A divisão de ${num1} com ${num2} é igual a ${div} <br>`)
 
         //alert('soma =' +soma +
         //'\nsubtração = ' + sub +
