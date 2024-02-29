@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Calculadora</title>
 </head>
 <body>
+    <h1>Digite o 1° numero:</h1>
+    <input id="num1" name="num1" value=" " type="number">
+    <h1>Digite o 2° numero:</h1>
+    <input id="num2" name="num2" value=" " type="number">
+    <p></p>
+    <button id="botao1" onclick="fazerAdi()">Adição</button>
+    <button id="botao2" onclick="fazerSub()">Subtração</button>
+    <button id="botao3" onclick="fazerMult()">Multiplicação</button>
+    <button id="botao4" onclick="fazerDiv()">Divizão</button>
+    <button id="botao5" onclick="limpar()">Limpar</button>
+    <h1>Resultado: <span id="result"> </span></h1>
     
+    <script src="js/script.js"></script>
+
 </body>
 </html>
