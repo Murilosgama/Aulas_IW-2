@@ -2,7 +2,7 @@ const ligar = document.getElementById('ligar')
 const desligar = document.getElementById('desligar')
 const lampada = document.getElementById('lampada')
 const texto = document.getElementById('texto')
-const botaoDuplo = document.getElementById('piscar')
+const pisca = document.getElementById('piscar')
 
 function estaQuebrada(){
     return lampada.src.indexOf('quebrada') > -1
