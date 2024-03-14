@@ -1,11 +1,3 @@
-function confNum1(){
-    var num1 = Number(document.getElementById('num1').value)
-}
-
-function confNum2(){
-    var num2 = Number(document.getElementById('num2').value)
-}
-
 function fazerAdi(){
     var num1 = Number(document.getElementById('num1').value)
     var num2 = Number(document.getElementById('num2').value)
@@ -35,5 +27,9 @@ function fazerDiv(){
 }
 
 function limpar(){
-    result.innerHTML = ' '
+    var num1 = document.getElementById('num1')
+    var num2 = document.getElementById('num2')
+    num1.value = ''
+    num2.value = ''
+    result.innerHTML = ''
 }
