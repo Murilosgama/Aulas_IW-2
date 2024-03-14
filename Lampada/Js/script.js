@@ -1,47 +1,55 @@
 const ligar = document.getElementById('ligar')
 const desligar = document.getElementById('desligar')
 const lampada = document.getElementById('lampada')
-const piscar = document.getElementById('piscar')
+const texto = document.getElementById('texto')
+const botaoDuplo = document.getElementById('piscar')
 
 function estaQuebrada(){
     return lampada.src.indexOf('quebrada') > -1
 }
 
-function estaDesligada(){
-    return lampada.src.indexOf('desligar') > -1
-}
-
-function estaLigada(){
-    return lampada.src.indexOf('ligar') > -1
-}
-
-function lampadaLigar(){
+function lampLigada(){
     if(!estaQuebrada()){
         lampada.src = "img/ligada.jpg"
+        texto.innerHTML = "LIGADA"
     }
 }
 
-function lampadaDesligar(){
+function lampDesligada(){
     if(!estaQuebrada()){
         lampada.src = "img/desligada.jpg"
+        texto.innerHTML = "DESLIGADA"
     }
 }
 
-function lampadaQuebrada(){
+function lampQuebrada(){
     lampada.src = "img/quebrada.jpg"
+    texto.innerHTML = "QUEBRADA"
 }
 
-function lampadaPiscaL(){
-    if(!estaLigada(lampada.src = "img/desligada.jpg")){
-        lampada.src = "img/ligada.jpg"
+function estadoInicial(){
+    return lampada.src.indexOf('desligada') > -1
+}
+
+function botaoLouD(){
+    if(!estaQuebrada()){
+        if(estadoInicial()){
+            lampada.src = "img/ligada.jpg"
+            texto.innerHTML = "LIGADA"
+        }
+        else{
+            lampada.src = "img/desligada.jpg"
+            texto.innerHTML = "DESLIGADA"
+        }
+       
     }
 }
 
-ligar.addEventListener('click',lampadaLigar)
-desligar.addEventListener('click',lampadaDesligar)
-piscar.addEventListener('click',lampadaPiscaL)
+ligar.addEventListener('click', lampLigada)
+desligar.addEventListener('click', lampDesligada)
+botaoDuplo.addEventListener('click', botaoLouD)
 
-lampada.addEventListener('mouseover',lampadaLigar)
-lampada.addEventListener('mouseleave',lampadaDesligar)
+lampada.addEventListener('mouseover', lampLigada)
+lampada.addEventListener('mouseleave', lampDesligada)
 
-lampada.addEventListener('dblclick', lampadaQuebrada)
+lampada.addEventListener('dblclick', lampQuebrada)
