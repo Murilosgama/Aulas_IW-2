@@ -89,29 +89,35 @@ button {
 .light {
     background: #fff;
     color: #191919;
+    text-shadow: #424442 2px 2px;
 }
 
 .dark {
     background: #222;
     color: #fff;
+    text-shadow: #595d59 2px 2px;
 }
 
 .pink {
     background: #ea08a6;
     color: #2aea08;
+    text-shadow: #004301 1px 2px;
 }
 
 .green {
     background: #2aea08;
     color:  #ea08a6;
+    text-shadow: #75006d 1px 2px;
 }
 
 .blue {
     background: #1a237e;
-    color: #ffc107;
+    color: #efb404;
+    text-shadow: #e5ff00 1px 2px;
 }
 
 .yellow {
     background: #ffc107;
     color: #1a237e;
+    text-shadow: #00b3ff 1px 2px;
 }
