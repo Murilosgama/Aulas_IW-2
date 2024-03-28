@@ -55,6 +55,30 @@ button {
     color: #fff;
 }
 
+/* botao pink */
+#btpink {
+    background-color: #ea08a6;
+    color: #6b0261;
+}
+
+/* botao blue */
+#btblue {
+    background-color: #1a237e;
+    color: #63edff;
+}
+
+/* botao yellow */
+#btyellow {
+    background-color: #ffc107;
+    color: #ff6a00;
+}
+
+/* botao green */
+#btgreem {
+    background-color: #2aea08;
+    color: #007d02;
+}
+
 /* articles com a class box */
 .box {
     padding: 0.625rem;
@@ -72,18 +96,22 @@ button {
     color: #fff;
 }
 
-.azul {
-    background: #1a237e;
-    color: #fff;
+.pink {
+    background: #ea08a6;
+    color: #2aea08;
 }
 
-.escura {
-    background: #333;
-    color: #fff;
-    border-radius: 5px;
-    padding: 0.625rem;
+.green {
+    background: #2aea08;
+    color:  #ea08a6;
 }
-.amarelo {
+
+.blue {
+    background: #1a237e;
+    color: #ffc107;
+}
+
+.yellow {
     background: #ffc107;
-    color: #fff;
+    color: #1a237e;
 }
