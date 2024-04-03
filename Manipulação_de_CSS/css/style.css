@@ -11,6 +11,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: #ccc;
+    text-shadow: #424442 1px 1px;
 }
 
 main {
