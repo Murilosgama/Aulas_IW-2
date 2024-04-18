@@ -1,12 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validação de formulário</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Validação de formulário</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="js/additional-methods.min.js"></script>
+        <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+
+
+        <script type="text/javascript">
+		
+			jQuery.validator.addMethod("arrobaNoInicio", function(value, element){
+				if (value.indexOf("@") == 0){
+					return true
+				}else{
+					return false
+				}
+			}, "Tem que ter arroba no começo")
+		
+			$(document).ready(function(){
+				$("#formCadastro").validate({
+					rules:{
+						nome: {
+							required: true,
+							maxlength: 100,
+							minlength: 10,
+							minWords: 2
+						},
+						email: {
+							required: true,
+							email: true
+						},
+						cidade: {
+							required: true
+						},
+						idade: {
+							required: true,
+							min: 15,
+							max: 120
+						},
+                        escola: {
+							required: true
+						},
+						instagram: {
+							arrobaNoInicio: true
+						}
+					},
+					submitHandler: function(form){
+						alert("BOA GAROTO!!!")						
+					}
+				})
+			})
+		</script>
+        <script>
+            $(document).ready(function() {
+                $('#validar').click(function() {
+                    var telefone = $('#telefone').val();
+                    var regex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/; // Regex para validar telefone no formato (xx) xxxx-xxxx ou (xx) xxxxx-xxxx
+                    if (regex.test(telefone)) {
+                        alert('Telefone válido!');
+                    } else {
+                        alert('Telefone inválido! Por favor, insira um telefone válido.');
+                    }
+                });
+            });
+            </script>
+    </head>
+    <body>
+        <div class="container">
+			<h1>Validação de formulários com JQuery Validation</h1>
+			<form name="formCadastro" id="formCadastro" method="post">
+				<div class="row">
+					<label>Nome</label>
+					<input type="text" name="nome" id="nome" class="form-control" />
+				</div>
+				<div class="row">
+					<label>E-mail</label>
+					<input type="email" name="email" id="email" class="form-control" />
+				</div>				
+				<div class="row">
+					<label>Cidade</label>
+					<select name="cidade" id="cidade" class="form-control">
+						<option value="">----</option>
+                        <option value=" DIADEMA">Diadema</option>
+                        <option value="MAUA">Mauá</option>    
+						<option value="RIBEIRAOPIRES">Ribeirão Pires</option>
+                        <option value="RIOGRANDE">Rio Grande</option>     
+                        <option value="SANTOANDRE">Santo André</option>        
+                        <option value="SAOBERNARDO">São Bernardo</option>
+						<option value="SAOCAETANO">São Caetano</option>						   
+					</select>
+				</div>
+				<div class="row">
+					<label>Idade</label>
+					<input type="number" name="idade" id="idade" class="form-control" />
+                </div>
+                <div class="row">
+                    <label>Escolaridade</label>
+                    <select name="escola" id="escola" class="form-control">
+                        <option value="">----</option>
+                        <option value="FUNDAMENTAL1">Fundamental 1</option>
+                        <option value="FUNDAMENTAL2">Fundamental 2</option>    
+                        <option value="ENSINOMEDIO">Ensino médio</option>
+                        <option value="ENSINOSUPERIOR">Ensino superior</option>     
+                        <option value="MESTRADO">Mestardo</option>        
+                        <option value="DOUTORADO">Doutorado</option>				   
+                    </select>
+                </div>
+				<div class="row">
+					<label>Instagram</label>
+					<input type="text" name="instagram" id="instagram" class="form-control" />
+				</div>
+				<div class="row">
+					<input type="submit" name="enviar" id="enviar" class="btn btn-primary form-control" />
+				</div>
+			</form>
+		</div>
+        
+    </body>
 </html>
