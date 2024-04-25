@@ -11,6 +11,8 @@
         <script type="text/javascript" src="js/jquery.validate.min.js"></script>
         <script type="text/javascript" src="js/additional-methods.min.js"></script>
         <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
 
         <script type="text/javascript">
@@ -47,6 +49,9 @@
                         escola: {
 							required: true
 						},
+						labelTelefone: {
+							required: true
+						},
 						instagram: {
 							arrobaNoInicio: true
 						}
@@ -58,18 +63,22 @@
 			})
 		</script>
         <script>
-            $(document).ready(function() {
-                $('#validar').click(function() {
-                    var telefone = $('#telefone').val();
-                    var regex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/; // Regex para validar telefone no formato (xx) xxxx-xxxx ou (xx) xxxxx-xxxx
-                    if (regex.test(telefone)) {
-                        alert('Telefone válido!');
-                    } else {
-                        alert('Telefone inválido! Por favor, insira um telefone válido.');
-                    }
-                });
-            });
-            </script>
+            jQuery(function($){
+  				$('.tipo').change(function(){
+					var campo = $(this).val();
+					if (campo == "fixo"){	
+						$("#Telefone").val('');
+						$("#labelTelefone").html('Fixo');
+						$("#Telefone").mask("(99)9999-9999");
+    				}
+					else if (campo == "celular"){
+						$("#Telefone").val('');
+						$("#labelTelefone").html('Celular');
+						$("#Telefone").mask("(99)99999-9999");
+    				}			
+				});
+			});
+        </script>
     </head>
     <body>
         <div class="container">
@@ -112,6 +121,10 @@
                         <option value="DOUTORADO">Doutorado</option>				   
                     </select>
                 </div>
+				<div class="row">
+					<label>Telefone</label>
+					<input type="text" name="labelTelefone" class="form-control" id="labelTelefone" />
+				</div>
 				<div class="row">
 					<label>Instagram</label>
 					<input type="text" name="instagram" id="instagram" class="form-control" />

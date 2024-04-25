@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Cabulosa</title>
+
+    <style>
+        body{
+            background-color: black;
+            color: red;
+            font: normal 15pt arial;
+            text-align: center;
+            text-shadow: rgba(255, 0, 0, 0.473) 2pt 2pt;
+        }
+
+        h1{
+            text-shadow: rgba(255, 0, 0, 0.473) 3pt 3pt;
+        }
+    </style>
+</head>
+<body>
+    <h1>OPERAÇÕES ENTRE DOIS NUMEROS</h1>
+
+    <script>
+        var num1 = parseFloat(prompt('Digite o primeiro numero:'))
+        var num2 = parseFloat(prompt('Digite o segundo numero:'))
+        
+        var soma = (num1 + num2)
+        var sub = (num1 - num2)
+        var div = (num1 / num2)
+        var mult = (num1 * num2)
+
+        //MOSTRANDO NA TELA DO NAVEGADOR (JANELA ==> DOCUMENT)
+        document.writeln('<p>O primeiro numero é '+num1 + '</p>')
+        document.writeln('<p>O segundo numero é '+num2 + '</p>')
+        document.write('<br>')
+
+        //INTERPOLAÇÃO DE VALORES - TEMPLATE STRING
+        document.write(` Num1 = ${num1} e Num2 = ${num2}`)
+        document.write('<br>')
+        document.write(`A soma de ${num1} com ${num2} é igual a ${soma} <br>`)
+        document.write(`A subtração de ${num1} com ${num2} é igual a ${sub} <br>`)
+        document.write(`A multiplicação de ${num1} com ${num2} é igual a ${mult} <br>`)
+        document.write(`A divisão de ${num1} com ${num2} é igual a ${div} <br>`)
+
+        //alert('soma =' +soma +
+        //'\nsubtração = ' + sub +
+        //'\ndivisão = ' +div +
+        //'\nmultiplicação = ' +mult)
+    </script>
+</body>
+</html>
