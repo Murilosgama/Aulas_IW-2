@@ -12,7 +12,7 @@
         <script type="text/javascript" src="js/additional-methods.min.js"></script>
         <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>	
 
 
         <script type="text/javascript">
@@ -46,10 +46,16 @@
 							min: 15,
 							max: 120
 						},
+						peso: {
+							required: true
+						},
+						altura: {
+							required: true
+						},
                         escola: {
 							required: true
 						},
-						labelTelefone: {
+						tel: {
 							required: true
 						},
 						instagram: {
@@ -63,20 +69,17 @@
 			})
 		</script>
         <script>
-            jQuery(function($){
-  				$('.tipo').change(function(){
-					var campo = $(this).val();
-					if (campo == "fixo"){	
-						$("#Telefone").val('');
-						$("#labelTelefone").html('Fixo');
-						$("#Telefone").mask("(99)9999-9999");
-    				}
-					else if (campo == "celular"){
-						$("#Telefone").val('');
-						$("#labelTelefone").html('Celular');
-						$("#Telefone").mask("(99)99999-9999");
-    				}			
-				});
+            $(document).ready(function(){
+				var SPMaskBehavior = function (val) {
+					return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+				},
+				spOptions = {
+					onKeyPress: function(val, e, field, options) {
+						field.mask(SPMaskBehavior.apply({}, arguments), options);
+					}
+				};
+
+				$('#tel').mask(SPMaskBehavior, spOptions);
 			});
         </script>
     </head>
@@ -96,7 +99,7 @@
 					<label>Cidade</label>
 					<select name="cidade" id="cidade" class="form-control">
 						<option value="">----</option>
-                        <option value=" DIADEMA">Diadema</option>
+                        <option value="DIADEMA">Diadema</option>
                         <option value="MAUA">Mauá</option>    
 						<option value="RIBEIRAOPIRES">Ribeirão Pires</option>
                         <option value="RIOGRANDE">Rio Grande</option>     
@@ -109,6 +112,32 @@
 					<label>Idade</label>
 					<input type="number" name="idade" id="idade" class="form-control" />
                 </div>
+				<div class="row">
+					<label>Peso</label>
+					<select name="peso" id="peso" class="form-control">
+						<option value="">----</option>
+                        <option value="-50">-50Kg</option>
+                        <option value="50-60">50-60Kg</option>    
+						<option value="60-70">60-70Kg</option>
+                        <option value="70-80">70-80Kg</option>     
+                        <option value="80-90">80-90Kg</option>        
+                        <option value="90-100">90-100Kg</option>
+						<option value="+100">+100Kg</option>						   
+					</select>
+				</div>
+				<div class="row">
+					<label>Altura</label>
+					<select name="altura" id="altura" class="form-control">
+						<option value="">----</option>
+                        <option value="-1,50">-1,50m</option>
+                        <option value="1,50-1,60">1,50m-1,60m</option>    
+						<option value="1,60-1,70">1,60m-1,70m</option>
+                        <option value="1,70-1,80">1,70m-1,80m</option>     
+                        <option value="1,80-1,90">1,80m-1,90m</option>        
+                        <option value="1,90-2,00">1,90m-2,00m</option>
+						<option value="+2,00">+2,00m</option>						   
+					</select>
+				</div>
                 <div class="row">
                     <label>Escolaridade</label>
                     <select name="escola" id="escola" class="form-control">
@@ -123,7 +152,7 @@
                 </div>
 				<div class="row">
 					<label>Telefone</label>
-					<input type="text" name="labelTelefone" class="form-control" id="labelTelefone" />
+					<input type="text" name="tel" id="tel" class="form-control">
 				</div>
 				<div class="row">
 					<label>Instagram</label>
