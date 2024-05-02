@@ -1,37 +1,46 @@
-const mario = document.querySelector('.mario')
-const pipe = document.querySelector('.pipe')
+const mario = document.querySelector('.mario');
+const pipe = document.querySelector('.pipe');
+const restartBtn = document.querySelector('.restart-btn');
+
+const showRestartBtn = () => {
+    restartBtn.style.display = 'block';
+}
+
+const hideRestartBtn = () => {
+    restartBtn.style.display = 'none';
+}
 
 const pulo = () => {
-    mario.classList.add('pulo')
+    mario.classList.add('pulo');
 
-    setTimeout(() =>{
-
-        mario.classList.remove('pulo')
-
-    }, 500)
+    setTimeout(() => {
+        mario.classList.remove('pulo');
+    }, 500);
 }
 
-const loop =  setInterval (() => {
-
-
-    const pipePosition = pipe.offsetLeft
-    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '')
+const loopFunction = () => {
+    const pipePosition = pipe.offsetLeft;
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
     if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+        pipe.style.animation = 'none';
+        pipe.style.left = `${pipePosition}px`;
 
-        pipe.style.animation = 'none'
-        pipe.style.left = `${pipePosition}px`
+        mario.style.animation = 'none';
+        mario.style.bottom = `${marioPosition}px`;
 
-        mario.style.animation = 'none'
-        mario.style.bottom = `${marioPosition}px`
+        mario.src = 'img/game-over.png';
+        mario.style.width = '75px';
+        mario.style.marginLeft = '50px';
 
-        mario.src = 'img/game-over.png'
-        mario.style.width = '75px'
-        mario.style.marginLeft = '50px'
-
-        clearInterval(loop)
+        clearInterval(loop);
+        showRestartBtn();
     }
 }
-, 10)
 
-document.addEventListener('keydown', pulo)
+let loop = setInterval(loopFunction, 10);
+
+document.addEventListener('keydown', pulo);
+restartBtn.addEventListener('click', () => {
+    location.reload();
+});

@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #b16412;
+}
+
 .game-board{
     width: 100%;
     height: 500px;
-    border-bottom: 15px solid #03570a;
+    border-bottom: 20px solid #2bd339;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -37,6 +41,21 @@
     animation: nuvensAnimacao 20s infinite linear;
 }
 
+.restart-btn {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 40px;
+    background-color: #e60a0a;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 2px solid #000000;
+}
 
 @keyframes pipeAnimacao {
     from{
