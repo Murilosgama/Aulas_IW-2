@@ -18,6 +18,8 @@ const pulo = () => {
     }, 500);
 }
 
+let score = 0;
+
 const loopFunction = () => {
     const pipePosition = pipe.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
@@ -34,7 +36,12 @@ const loopFunction = () => {
         mario.style.marginLeft = '50px';
 
         clearInterval(loop);
-        showRestartBtn();
+        showRestartBtn(); 
+
+        document.querySelector('.nuvens').classList.remove('nuvens-animada');
+    } else if (pipePosition === 0 && marioPosition > 80) {
+        score++; 
+        document.querySelector('.score-value').textContent = score;
     }
 }
 
