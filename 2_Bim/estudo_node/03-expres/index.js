@@ -14,7 +14,7 @@ app.get('/sobre',function(req,res){
 })
 
 app.get('/cadastro/:nome',function(req,res){
-    res.send('Olá, seu nome: ' + req.params.nome + 'sua idade:' + req.params.idade)
+    res.send('Olá, seu nome: ' + req.params.nome + '. Sua idade:' + req.params.idade)
     //res.send('Olá, sua idade: ' + req.params.idade)
     //req.send(req.params)
 })
