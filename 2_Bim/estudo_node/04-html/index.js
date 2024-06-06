@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get('/',function(req,res){
-    res.send('Olá, como está você, seja bem vindo!!')
+    res.sendFile(__dirname + '/paginas/index.html')
 })
 
 app.get('/blog',function(req,res){
@@ -10,7 +10,7 @@ app.get('/blog',function(req,res){
 })
 
 app.get('/sobre',function(req,res){
-    res.send('Olá, saiba tudo sobre nós!!')
+    res.sendFile(__dirname + '/paginas/sobre.html')
 })
 
 app.get('/ola/cargo/:nome',function(req,res){
