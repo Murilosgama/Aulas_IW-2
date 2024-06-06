@@ -42,9 +42,9 @@ const Usuario = sequelize.define('usuarios',{
 //     conteudo:'Esse é o comteudo etc etc'
 // })
 
- Usuario.create({
-     nome:'Ronaldo',
-     sobrenome:'Galvão',
-     idade: 45,
-     email:'galvao@gmail.com'
- })
+//  Usuario.create({
+//      nome:'Ronaldo',
+//      sobrenome:'Galvão',
+//      idade: 45,
+//      email:'galvao@gmail.com'
+//  })
