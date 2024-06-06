@@ -1,5 +1,5 @@
-var express = require('express')
-var app = express()
+const express = require('express')
+const app = express()
 
 app.get('/',function(req,res){
     res.send('Olá, como está você, seja bem vindo!!')
@@ -13,8 +13,8 @@ app.get('/sobre',function(req,res){
     res.send('Olá, saiba tudo sobre nós!!')
 })
 
-app.get('/cadastro/:nome',function(req,res){
-    res.send('Olá, seu nome: ' + req.params.nome + '. Sua idade:' + req.params.idade)
+app.get('/ola/cargo/:nome',function(req,res){
+    res.send('Olá, ' + req.params.nome + '. Seu cargo é:' + req.params.cargo)
     //res.send('Olá, sua idade: ' + req.params.idade)
     //req.send(req.params)
 })
